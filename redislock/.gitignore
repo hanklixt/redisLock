@@ -19,6 +19,8 @@ bin/
 *.iml
 *.ipr
 rebel.xml
+.mvn
+
 
 ### NetBeans ###
 nbproject/private/
