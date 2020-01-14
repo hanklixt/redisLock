@@ -103,6 +103,20 @@
 	end;
 	
 	
+ #  redisson 框架的使用
+    redisson 实现的功能:
+	  1.可重入锁
+	  2.公平锁
+	  3.联锁
+	  4.红锁
+	  5.读写锁
+	  6.信号量
+	  7.可过期信号量
+	  8.闭锁
+	  GitHub地址:https://github.com/redisson/redisson 
+	  项目里有简单的配置和使用。
+    	
+	
 	  
    	  
 		
