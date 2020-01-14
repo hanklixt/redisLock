@@ -19,14 +19,18 @@ public class Work {
     @Scheduled(cron = "0/10 * * * * ?")
     public void clearOrder() {
         final RedisLock lock = redisLockFactory.getInstance("lock");
-        final boolean b = lock.tryLock(1000);
-        if (b) {
+        final boolean b = lock.tryLock(50);
+        try {
+            if (!b) {
+                System.out.println("获取锁失败,任务终止");
+                return;
+            }
             System.out.println("扫描订单");
             System.out.println("清理库存");
-            lock.unLock(1000);
-            return;
+        } finally {
+            System.out.println("释放锁");
+            lock.unLock(50);
         }
-        System.out.println("获取锁失败");
 
 
     }

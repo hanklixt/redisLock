@@ -47,7 +47,6 @@ public class ReentrantRedisLock implements RedisLock {
         //设置释放锁脚本获取来源
         UNLOCK_SCRIPTS = new DefaultRedisScript<>();
         UNLOCK_SCRIPTS.setScriptSource(new ResourceScriptSource(new ClassPathResource("unlock.lua")));
-        UNLOCK_SCRIPTS.setResultType(Object.class);
     }
 
     /**
@@ -60,7 +59,7 @@ public class ReentrantRedisLock implements RedisLock {
     public boolean tryLock(long releaseTime) {
         final String time = String.valueOf(releaseTime);
         final Long locked = stringRedisTemplate.execute(LOCK_SCRIPTS, Collections.singletonList(key), ID_PREFIX + Thread.currentThread().getId(), time);
-        return locked != null && locked == 1;
+        return locked != null && locked.intValue() == 1;
     }
 
 
