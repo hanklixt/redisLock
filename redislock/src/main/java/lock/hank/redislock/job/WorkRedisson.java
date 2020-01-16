@@ -4,7 +4,6 @@ import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
@@ -12,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  * @author lxt
  * @date 2020-01-13-17:46
  */
-@Component
+//@Component
 public class WorkRedisson {
 
 

@@ -11,6 +11,7 @@ import org.springframework.scheduling.annotation.Scheduled;
  * @author lxt
  * @date 2020-01-13-17:46
  */
+//@Component
 public class Work {
 
     @Autowired

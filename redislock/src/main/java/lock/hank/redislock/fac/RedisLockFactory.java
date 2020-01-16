@@ -17,8 +17,6 @@ public class RedisLockFactory {
     private StringRedisTemplate redisTemplate;
 
 
-    private RedisLock redisLock;
-
     public RedisLock getInstance(String key) {
         return new ReentrantRedisLock(redisTemplate, key);
     }
